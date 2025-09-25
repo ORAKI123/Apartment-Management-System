@@ -1,0 +1,1 @@
+<?php session_start(); require_once 'includes/db.php'; if(!empty($_SESSION['user_id'])){ $pdo->prepare('INSERT INTO activity_log (user_id, action) VALUES (?,?)')->execute([$_SESSION['user_id'],'Logged out']); } session_destroy(); header('Location: index.php'); exit; ?>

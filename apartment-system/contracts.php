@@ -1,0 +1,4 @@
+<?php require_once 'includes/auth.php'; require_login(); require_once 'includes/db.php'; include 'includes/header.php';
+$contracts = $pdo->query('SELECT c.*, t.full_name, u.unit_number FROM contracts c JOIN tenants t ON c.tenant_id=t.id JOIN units u ON c.unit_id=u.id ORDER BY c.id DESC')->fetchAll();
+?>
+<div class="d-flex"><aside class="sidebar"><h3>APARTMENT</h3></aside><main class="main"><h2>Contracts</h2><div class="table-responsive"><table class="table"><thead><tr><th>ID</th><th>Tenant</th><th>Unit</th><th>Start</th><th>End</th><th>Rent</th></tr></thead><tbody><?php foreach($contracts as $c): ?><tr><td><?= $c['id'] ?></td><td><?= htmlspecialchars($c['full_name']) ?></td><td><?= htmlspecialchars($c['unit_number']) ?></td><td><?= $c['start_date'] ?></td><td><?= $c['end_date']?:'Ongoing' ?></td><td>₱<?= number_format($c['rent'],2) ?></td></tr><?php endforeach; ?></tbody></table></div></main></div><?php include 'includes/footer.php'; ?>

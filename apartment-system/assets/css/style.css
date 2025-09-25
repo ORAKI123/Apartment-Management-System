@@ -1,0 +1,14 @@
+body { font-family: Arial, sans-serif; background:#f0f4f7; }
+.sidebar { width: 240px; background:#075e72; color:#fff; min-height: calc(100vh - 56px); padding:20px; }
+.sidebar h3 { color:#fff; margin-top:0; }
+.sidebar a { color:#dff3f5; display:block; padding:8px 10px; border-radius:4px; text-decoration:none; }
+.sidebar a:hover, .sidebar a.active { background:#0a93a3; color:#fff; }
+.main { padding:20px; }
+.auth-left { background-image: url('/assets/images/bg.jpg'); background-size:cover; background-position:center; height:100%; color:#fff; display:flex; align-items:center; justify-content:center; }
+.auth-left .overlay { background: rgba(0,0,0,0.35); padding:30px; border-radius:8px; text-align:left; }
+.auth-card { max-width:420px; margin:60px auto; }
+.unit-card { background:#fff; border-radius:6px; padding:12px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.06); }
+.unit-card .icon { font-size:28px; margin:8px 0; }
+.table-responsive { background:#fff; padding:12px; border-radius:8px; }
+.badge-paid { background:#198754; color:#fff; padding:6px 10px; border-radius:6px; }
+.badge-pending { background:#ffc107; color:#000; padding:6px 10px; border-radius:6px; }

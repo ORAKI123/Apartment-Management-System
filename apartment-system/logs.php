@@ -1,0 +1,4 @@
+<?php require_once 'includes/auth.php'; require_login(); require_once 'includes/db.php'; if(!is_admin()) die('Access denied'); include 'includes/header.php';
+$logs = $pdo->query('SELECT l.*, u.username FROM activity_log l LEFT JOIN users u ON l.user_id = u.id ORDER BY l.log_time DESC')->fetchAll();
+?>
+<div class="d-flex"><aside class="sidebar"><h3>APARTMENT</h3></aside><main class="main"><h2>System Logs</h2><div class="table-responsive"><table class="table"><thead><tr><th>ID</th><th>User</th><th>Action</th><th>Time</th></tr></thead><tbody><?php foreach($logs as $l): ?><tr><td><?= $l['id'] ?></td><td><?= htmlspecialchars($l['username']) ?></td><td><?= htmlspecialchars($l['action']) ?></td><td><?= $l['log_time'] ?></td></tr><?php endforeach; ?></tbody></table></div></main></div><?php include 'includes/footer.php'; ?>
